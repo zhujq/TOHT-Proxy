@@ -150,7 +150,7 @@ func handleConnection(clientConn net.Conn) {
 				resolvedId = line[10:30]
 			}
 
-			if line == "----------SWAG------BOUNDARY----\r\n" {
+			if line == "\r\n" {
 				break
 			}
 		}
