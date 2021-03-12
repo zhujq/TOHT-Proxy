@@ -135,7 +135,7 @@ func handleConnection(clientConn net.Conn) {
 		 	 log.Println("Failed to find client id!")
 		}
 
-	} else if line == "POST /transmit HTTP/1.1\r\n" {
+	} else if line == "GET /transmit HTTP/1.1\r\n" {
 		// This is for TRANSMITTING
 		log.Println("start to receive post init")
 	
