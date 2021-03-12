@@ -86,7 +86,7 @@ func handleConnection(clientConn net.Conn) {
 		// log.Println("Failed to read first line", err)
 		return
 	}
-	if line == "GET /listen HTTP/1.1\r\n" {
+	if line == "GET /listen.html HTTP/1.1\r\n" {
 		// This is for LISTENING
 		resolvedId := ""
 		for line, err = reader.ReadString('\n'); true; line, err = reader.ReadString('\n') {
@@ -135,7 +135,7 @@ func handleConnection(clientConn net.Conn) {
 		 	 log.Println("Failed to find client id!")
 		}
 
-	} else if line == "POST /transmit HTTP/1.1\r\n" {
+	} else if line == "POST /post.html HTTP/1.1\r\n" {
 		// This is for TRANSMITTING
 		resolvedId := ""
 		for line, err = reader.ReadString('\n'); true; line, err = reader.ReadString('\n') {
