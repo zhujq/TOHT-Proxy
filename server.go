@@ -137,6 +137,8 @@ func handleConnection(clientConn net.Conn) {
 
 	} else if line == "POST /transmit HTTP/1.1\r\n" {
 		// This is for TRANSMITTING
+		log.Println("start to receive post init")
+	
 		resolvedId := ""
 		for line, err = reader.ReadString('\n'); true; line, err = reader.ReadString('\n') {
 			if err != nil {
