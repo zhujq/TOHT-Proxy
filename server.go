@@ -38,6 +38,7 @@ func bindServer(clientId string) {
 		if err != nil {
 			log.Println("Failed to connect to remote server :/", err)
 		}
+                log.Println("success to dial" + target)
 
 		defer serverConn.Close()
 
@@ -104,6 +105,8 @@ func handleConnection(clientConn net.Conn) {
 		}
 
 		if len(resolvedId) > 1 {
+                        log.Println("success to get resolvedid:" + resolvedId)
+
 			fmt.Fprintf(clientConn, "HTTP/1.1 200 OK\r\n")
 			fmt.Fprintf(clientConn, "Content-Type: application/octet-stream\r\n")
 			fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
@@ -123,13 +126,13 @@ func handleConnection(clientConn net.Conn) {
 
 			connectedClients[resolvedId] = currentClient
 
-			// log.Println("Attempting to bind listener")
+			log.Println("Attempting to bind listener")
 
 			go bindServer(resolvedId)
 
 			<-wait
 		} else {
-			// log.Println("Failed to find client id!")
+		 	 log.Println("Failed to find client id!")
 		}
 
 	} else if line == "POST /transmit HTTP/1.1\r\n" {
@@ -137,7 +140,7 @@ func handleConnection(clientConn net.Conn) {
 		resolvedId := ""
 		for line, err = reader.ReadString('\n'); true; line, err = reader.ReadString('\n') {
 			if err != nil {
-				// log.Println("Failed to read following lines")
+				log.Println("Failed to read following lines")
 				return
 			}
 
@@ -165,13 +168,13 @@ func handleConnection(clientConn net.Conn) {
 
 			connectedClients[resolvedId] = currentClient
 
-			// log.Println("Attempting to bind transmission")
+			log.Println("Attempting to bind transmission")
 
 			go bindServer(resolvedId)
 
 			<-wait
 		} else {
-			// log.Println("Failed to find client id!")
+			log.Println("Failed to find client id!")
 		}
 
 	} else {
