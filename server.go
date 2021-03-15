@@ -110,6 +110,7 @@ func handleConnection(clientConn net.Conn) {
 			fmt.Fprintf(clientConn, "HTTP/1.1 101 Switching Protocols\r\n")
 			fmt.Fprintf(clientConn, "Upgrade: websocket\r\n")
 			fmt.Fprintf(clientConn, "Connection: Upgrade\r\n")
+		        fmt.Fprintf(clientConn, "Sec-WebSocket-Accept: f5Epp+WF92U8G5ysjEvzwXVEWRw=")
 		//	fmt.Fprintf(clientConn, "Content-Type: application/octet-stream\r\n")
 		//	fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
 		//	fmt.Fprintf(clientConn, "Content-Length: 12345789000\r\n\r\n")
@@ -163,7 +164,7 @@ func handleConnection(clientConn net.Conn) {
 			fmt.Fprintf(clientConn, "HTTP/1.1 101 Switching Protocols\r\n")
                         fmt.Fprintf(clientConn, "Upgrade: websocket\r\n")
                         fmt.Fprintf(clientConn, "Connection: Upgrade\r\n")
-
+			fmt.Fprintf(clientConn, "Sec-WebSocket-Accept: f5Epp+WF92U8G5ysjEvzwXVEWRw=")
 		//	fmt.Fprintf(clientConn, "Content-Type: application/octet-stream\r\n")
 		//	fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
 		//	fmt.Fprintf(clientConn, "Content-Length: 12345798000\r\n\r\n")
