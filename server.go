@@ -111,7 +111,7 @@ func handleConnection(clientConn net.Conn) {
 			fmt.Fprintf(clientConn, "Upgrade: websocket\r\n")
 			fmt.Fprintf(clientConn, "Connection: Upgrade\r\n")
 			fmt.Fprintf(clientConn, "Content-Type: application/octet-stream\r\n")
-			fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
+		//	fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
 			fmt.Fprintf(clientConn, "Content-Length: 12345789000\r\n\r\n")
 
 			wait := make(chan bool)
@@ -137,7 +137,7 @@ func handleConnection(clientConn net.Conn) {
 		 	 log.Println("Failed to find client id!")
 			 fmt.Fprintf(clientConn, "HTTP/1.1 404 Not found\r\n")
                 	 fmt.Fprintf(clientConn, "Content-Type: text/plain\r\n")
-			 fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
+		//	 fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
                          fmt.Fprintf(clientConn, "Content-Length: 8\r\n\r\n")
                          fmt.Fprintf(clientConn, "u wot m8")
 
@@ -171,7 +171,7 @@ func handleConnection(clientConn net.Conn) {
                         fmt.Fprintf(clientConn, "Connection: Upgrade\r\n")
 
 			fmt.Fprintf(clientConn, "Content-Type: application/octet-stream\r\n")
-			fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
+		//	fmt.Fprintf(clientConn, "Connection: keep-alive\r\n")
 			fmt.Fprintf(clientConn, "Content-Length: 12345798000\r\n\r\n")
 			wait := make(chan bool)
 
