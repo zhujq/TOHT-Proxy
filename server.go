@@ -135,6 +135,11 @@ func handleConnection(clientConn net.Conn) {
 			<-wait
 		} else {
 		 	 log.Println("Failed to find client id!")
+			 fmt.Fprintf(clientConn, "HTTP/1.1 404 Not found\r\n")
+                	 fmt.Fprintf(clientConn, "Content-Type: text/plain\r\n")
+                         fmt.Fprintf(clientConn, "Content-Length: 8\r\n\r\n")
+                         fmt.Fprintf(clientConn, "u wot m8")
+
 		}
 
 	} else if line == "GET /transmit HTTP/1.1\r\n" {
