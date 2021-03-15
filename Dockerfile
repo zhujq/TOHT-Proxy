@@ -16,8 +16,7 @@ RUN apt-get update \
   && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && mkdir /root/.ssh \
   && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /server .
 ADD . /code
 WORKDIR /code
-COPY --from=builder /server /code/server
+COPY --from=builder /server .
 CMD ["/bin/bash", "run.sh"]
