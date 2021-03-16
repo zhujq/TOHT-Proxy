@@ -12,6 +12,8 @@ spec:
       labels:
         app: ub-app
     spec:
+      securityContext:
+        runAsUser: 2000
       containers:
       - name: ub-webssh
         image: zhujq/ub-proxy
