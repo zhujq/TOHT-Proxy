@@ -1,0 +1,7 @@
+apiVersion: beta/v1
+build:
+  skaffold: 
+    file: skaffold.yaml
+ingress:
+  - serviceName: http-service
+    port: 8080
