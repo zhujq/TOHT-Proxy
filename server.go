@@ -9,8 +9,8 @@ import (
 	"runtime/debug"
 )
 
-const port = "9002"
-const target = ""
+const port = "1080"
+const target = "127.0.0.1:22"
 
 type client struct {
 	listenChannel        chan bool // Channel that the client is listening on
